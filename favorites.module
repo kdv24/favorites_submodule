@@ -1,0 +1,113 @@
+<?php
+
+    function favorites_menu()
+    {
+        $items = array();
+        //BOOKS
+        //create menu item
+        $items['favorite_books'] = array(
+            'title'=>'Favorite Books',
+            'page callback' => 'show_books',
+            'access callback' => TRUE,
+            'type' => MENU_NORMAL_ITEM,
+        );
+
+        $items['favorite_movies'] = array(
+            'title'=>'Favorite Movies',
+            'page callback' => 'show_movies',
+            'access callback' => TRUE,
+            'type' => MENU_NORMAL_ITEM,
+        );
+
+        $items['favorite_songs'] = array(
+            'title' => 'Favorite Songs',
+            'page callback' => 'show_songs',
+            'access callback' => TRUE,
+            'type' => MENU_NORMAL_ITEM,
+        );
+        return $items;
+    }
+
+//BOOKS FUNCTION
+    function show_books() {
+        $favorites_books = array(
+            'book1' => array(
+                'title' => 'The Help',
+                'author' => 'Somebody',
+            ),
+            'book2' => array(
+                'title' => '2001: A Space Odyssey',
+                'author' => 'Arthur C. Clark',
+            ),
+            'book3'=> array(
+                'title' => 'The Fault in Our Stars',
+                'author' => 'John Greene',
+            ),
+        );
+        $bookstuff_by_abeer = "";
+        foreach( $favorites_books as $book_number => $book_info){
+            $bookstuff_by_abeer .= "<h3>" . $book_info ['title']. "</h3>";
+            $bookstuff_by_abeer .= "<h5>" . $book_info ['author']."</h5></br>";
+
+        }
+        return $bookstuff_by_abeer;
+    }
+
+//MOVIES FUNCTION
+    function show_movies() {
+        $favorites_movies = array(
+            'movie1' => array(
+                'title' => 'Get Smart',
+                'genre' => 'Action Comedy',
+            ),
+            'movie2' => array(
+                'title' => 'Battlestar Galactica',
+                'genre' => 'Science Fiction',
+            ),
+            'movie3' => array(
+                'title' => 'Princess Bride',
+                'genre' => 'Comedy',
+            ),
+        );
+        $display_movies = "";
+        foreach( $favorites_movies as $movie_number => $movie_info){
+            $display_movies .= "<h3>" . $movie_info['title']. "</h3>";
+            $display_movies .= "<h4>" . $movie_info['genre']. "</h4></br>";
+        }
+        return $display_movies;
+    }
+
+//SONGS FUNCTION
+    function show_songs(){
+        $favorites_songs = array(
+            'song1' => array(
+                'title' => 'The Gambler',
+                'singer' => 'Kenny Roger',
+            ),
+            'song2' => array(
+                'title' => 'I Gotta Feeling',
+                'singer' => 'Black Eyed Peas',
+            ),
+            'song3' => array(
+                'title' => 'The Music of the Night',
+                'singer' => 'The Phantom of the Opera',
+            ),
+        );
+        $display_songs = "";
+        foreach( $favorites_songs as $song_number => $song_info){
+                $display_songs .= "<h3>" . $song_info['title']. "</h3>";
+                $display_songs .= "<h4>" . $song_info['singer']. "</h4>";
+        }
+      return $display_songs;
+    }
+
+
+// };
+
+//PLAYING AROUND WITH JAVASCRIPT-
+// function get_pet_info() {
+//     return "<h2>Otto</h2></br>
+//     <button onclick='myFunction()'>Click me</button>
+
+//     <a href='pet'><img src='/sites/images/pet.jpg' alt='pet picture' height='200' width='200'></a>";
+// } -->
